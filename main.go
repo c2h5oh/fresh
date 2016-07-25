@@ -25,9 +25,10 @@ func main() {
 	buildArgs := flag.String("b", "", "build command line arguments")
 	runArgs := flag.String("r", "", "run command line arguments")
 	buildPath := flag.String("p", "", "build at path")
+	outputBuildPath := flag.String("o", "runner-build", "output build path")
 	flag.Var(&watchList, "w", "watch path (recursive), repeat multiple times to watch multiple paths")
 	flag.Var(&excludeList, "e", "exclude path (recursive), repeat multiple times to exclude multiple paths")
 	flag.Parse()
 
-	runner.Start(configPath, buildArgs, runArgs, buildPath, watchList, excludeList)
+	runner.Start(configPath, buildArgs, runArgs, buildPath, outputBuildPath, watchList, excludeList)
 }

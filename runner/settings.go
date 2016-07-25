@@ -81,7 +81,7 @@ var (
 	}
 )
 
-func initSettings(confFile, buildArgs, runArgs, buildPath *string, watchList, excludeList Multiflag) error {
+func initSettings(confFile, buildArgs, runArgs, buildPath, outputBuildPath *string, watchList, excludeList Multiflag) error {
 	defer buildPaths()
 
 	if *confFile != "" {
@@ -103,6 +103,9 @@ func initSettings(confFile, buildArgs, runArgs, buildPath *string, watchList, ex
 	}
 	if *buildPath != "" {
 		settings.Root = *buildPath
+	}
+	if *outputBuildPath != "" {
+		settings.BuildName = *outputBuildPath
 	}
 	if len(watchList) > 0 {
 		settings.WatchPaths = watchList
